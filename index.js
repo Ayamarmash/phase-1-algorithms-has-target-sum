@@ -1,20 +1,12 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  if(array.length <= 0)return false
+  for (let index = 0; index < array.length; index++) {
+    let n = target - array[index]
+    if(array.indexOf(n) >= 0 && array.indexOf(n) != index) return true
+  }
+  return false
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
@@ -28,7 +20,5 @@ if (require.main === module) {
   console.log("");
 
   console.log("Expecting: false");
-  console.log("=>", hasTargetSum([1, 2, 5], 4));
+  console.log("=>", hasTargetSum([4], 4));
 }
-
-module.exports = hasTargetSum;
